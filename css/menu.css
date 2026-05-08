@@ -1,0 +1,61 @@
+/* Card Redesign */
+.card {
+    border: 1px solid var(--outline-variant);
+    border-radius: 1rem;
+    overflow: hidden;
+    background: var(--surface);
+    transition: var(--transition);
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(171, 53, 0, 0.12);
+}
+
+.card-img-container {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-img-top {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.badge-float {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: rgba(171, 53, 0, 0.1);
+    color: var(--primary-color);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(171, 53, 0, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 0.75rem;
+}
+
+/* Sidebar Elements */
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.price-range {
+    accent-color: var(--primary-color);
+}
+
+.toggle-switch {
+    width: 40px;
+    height: 20px;
+}
+

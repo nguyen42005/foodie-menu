@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản trị FoodieMenu</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="bg-background">
+
+    <!-- Header will be injected by components.js -->
+
+    <div class="container py-5 flex-grow-1">
+        <!-- Dashboard Header -->
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 mb-5">
+            <div>
+                <h1 class="fw-bold mb-1">Bảng Điều Khiển</h1>
+                <p class="text-muted mb-0">Quản lý thực đơn và danh mục nhà hàng</p>
+            </div>
+            <div class="d-flex gap-2">
+                <button class="btn btn-outline-primary rounded-pill px-4 fw-bold" id="btnAddCategory">
+                    <i class="fas fa-folder-plus me-2"></i>Thêm Danh Mục
+                </button>
+                <button class="btn btn-primary rounded-pill px-4 fw-bold shadow-sm" id="btnAddDish">
+                    <i class="fas fa-plus me-2"></i>Thêm Món Mới
+                </button>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-4">
+                <div class="stat-card bg-1 stagger-item" style="animation-delay: 0.1s">
+                    <div class="stat-label">Tổng món ăn</div>
+                    <div class="stat-value" id="statTotal">0</div>
+                    <i class="fas fa-utensils stat-icon"></i>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card bg-2 stagger-item" style="animation-delay: 0.2s">
+                    <div class="stat-label">Đang phục vụ</div>
+                    <div class="stat-value" id="statActive">0</div>
+                    <i class="fas fa-check-circle stat-icon"></i>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card bg-3 stagger-item" style="animation-delay: 0.3s">
+                    <div class="stat-label">Danh mục</div>
+                    <div class="stat-value" id="statCategories">0</div>
+                    <i class="fas fa-list stat-icon"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab System -->
+        <ul class="nav nav-pills mb-4 gap-2" id="adminTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active rounded-pill px-4 fw-bold" id="dishes-tab" data-bs-toggle="pill" data-bs-target="#dishes-content" type="button">Quản lý Món Ăn</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link rounded-pill px-4 fw-bold" id="categories-tab" data-bs-toggle="pill" data-bs-target="#categories-content" type="button">Quản lý Danh Mục</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="adminTabsContent">
+            <!-- Dishes Management Tab -->
+            <div class="tab-pane fade show active" id="dishes-content">
+                <div class="glass-panel p-4 mb-4">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-md-6">
+                            <h5 class="fw-bold mb-0">Danh sách thực đơn</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="search-container">
+                                <i class="fa fa-search search-icon"></i>
+                                <input type="text" id="adminSearchInput" class="form-control search-input" placeholder="Tìm theo tên món hoặc ID...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-table-container">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="ps-4">ID</th>
+                                    <th>Ảnh</th>
+                                    <th>Tên Món</th>
+                                    <th>Danh Mục</th>
+                                    <th>Giá</th>
+                                    <th>Trạng Thái</th>
+                                    <th class="pe-4 text-center">Thao Tác</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminDishTable">
+                                <!-- Loaded via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categories Management Tab -->
+            <div class="tab-pane fade" id="categories-content">
+                <div class="glass-panel p-4 mb-4">
+                    <h5 class="fw-bold mb-0">Danh sách danh mục</h5>
+                </div>
+                <div class="admin-table-container">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="ps-4" width="100">ID</th>
+                                    <th>Tên Danh Mục</th>
+                                    <th class="text-center" width="200">Số lượng món</th>
+                                    <th class="pe-4 text-center" width="200">Thao Tác</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminCategoryTable">
+                                <!-- Loaded via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer will be injected by components.js -->
+
+    <!-- Dish Modal (Redesigned) -->
+    <div class="modal fade" id="dishModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content overflow-hidden border-0 shadow-lg" style="border-radius: 1.5rem;">
+                <div class="modal-header border-0 py-4 px-4">
+                    <div class="d-flex align-items-center">
+                        <div class="bg-primary-subtle text-primary rounded-circle p-2 me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h5 class="modal-title fw-bold" id="dishModalTitle">Thêm Món Ăn</h5>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 bg-light-subtle">
+                    <form id="dishForm" class="row g-3">
+                        <input type="hidden" id="dishId">
+                        <div class="col-md-12">
+                            <label class="form-label small text-primary">Tên món ăn <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white border-end-0"><i class="fas fa-signature text-primary"></i></span>
+                                <input type="text" class="form-control border-start-0 ps-0" id="dishName" name="name" placeholder="Ví dụ: Phở bò đặc biệt" required>
+                                <div class="invalid-feedback" id="nameError"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small text-primary">Giá bán (VNĐ) <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white border-end-0"><i class="fas fa-coins text-primary"></i></span>
+                                <input type="number" class="form-control border-start-0 ps-0" id="dishPrice" name="price" placeholder="0" required min="1">
+                                <div class="invalid-feedback" id="priceError"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small text-primary">Danh mục</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white border-end-0"><i class="fas fa-tags text-primary"></i></span>
+                                <select class="form-select border-start-0 ps-0" id="dishCategory" name="categoryId">
+                                    <!-- Loaded via JS -->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label small text-primary">Đường dẫn hình ảnh (URL) <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white border-end-0"><i class="fas fa-image text-primary"></i></span>
+                                <input type="url" class="form-control border-start-0 ps-0" id="dishImage" name="image" placeholder="https://..." required>
+                                <div class="invalid-feedback" id="imageError"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label small text-primary">Mô tả chi tiết</label>
+                            <textarea class="form-control" id="dishDescription" name="description" rows="3" placeholder="Nhập mô tả món ăn..."></textarea>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="glass-panel py-2 px-3 border-primary-subtle bg-white d-flex gap-4">
+                                <div class="form-check form-switch d-flex align-items-center gap-2 ps-0 mb-0">
+                                    <input class="form-check-input ms-0 toggle-switch" type="checkbox" id="dishAvailable" name="isAvailable" checked>
+                                    <label class="form-check-label fw-bold text-primary mb-0" for="dishAvailable">Phục vụ</label>
+                                </div>
+                                <div class="form-check form-switch d-flex align-items-center gap-2 ps-0 mb-0">
+                                    <input class="form-check-input ms-0 toggle-switch" type="checkbox" id="dishBestSeller" name="isBestSeller">
+                                    <label class="form-check-label fw-bold text-warning mb-0" for="dishBestSeller">⭐ Bán chạy</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer border-0 p-4 bg-white">
+                    <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Hủy bỏ</button>
+                    <button type="button" class="btn btn-primary rounded-pill px-5 fw-bold" id="btnSaveDish">Lưu Thông Tin</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Modal -->
+    <div class="modal fade" id="categoryModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content overflow-hidden border-0 shadow-lg" style="border-radius: 1.5rem;">
+                <div class="modal-header border-0 py-4 px-4">
+                    <h5 class="modal-title fw-bold" id="categoryModalTitle">Thêm Danh Mục</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="categoryForm">
+                        <input type="hidden" id="categoryId">
+                        <div class="mb-3">
+                            <label class="form-label small text-primary">Tên danh mục <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white border-end-0"><i class="fas fa-folder text-primary"></i></span>
+                                <input type="text" class="form-control border-start-0 ps-0" id="categoryName" required placeholder="Ví dụ: Món chính, Đồ uống...">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer border-0 p-4 pt-0">
+                    <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-primary rounded-pill px-4 fw-bold" id="btnSaveCategory">Lưu Danh Mục</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 1.5rem;">
+                <div class="modal-body text-center p-4">
+                    <div class="bg-danger-subtle text-danger rounded-circle d-inline-flex p-3 mb-3">
+                        <i class="fas fa-trash-alt fa-2x"></i>
+                    </div>
+                    <h5 class="fw-bold">Xác nhận xóa?</h5>
+                    <p class="text-muted small">Hành động này không thể hoàn tác.</p>
+                    <div class="d-flex gap-2 mt-3">
+                        <button type="button" class="btn btn-light w-100 rounded-pill" data-bs-dismiss="modal">Hủy</button>
+                        <button type="button" class="btn btn-danger w-100 rounded-pill fw-bold" id="btnConfirmDelete">Xóa</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container position-fixed bottom-0 end-0 p-3"></div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

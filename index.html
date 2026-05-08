@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chào mừng đến với FoodieMenu</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body class="bg-background">
+
+    <!-- Header will be injected by components.js -->
+
+    <!-- Hero Section -->
+    <header class="hero-home">
+        <div class="container">
+            <h1 class="fade-in-item">Hương Vị Tinh Tế <br> Nâng Tầm Trải Nghiệm</h1>
+            <p class="lead mb-5 fade-in-item">Khám phá tinh hoa ẩm thực từ những đầu bếp hàng đầu</p>
+            <div class="d-flex justify-content-center gap-3 fade-in-item">
+                <a href="menu.html" class="btn btn-primary rounded-pill px-5 py-3 fw-bold">Xem Thực Đơn</a>
+                <button class="btn btn-outline-light rounded-pill px-5 py-3 fw-bold">Đặt Bàn Ngay</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="container py-5 my-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Tại Sao Chọn Chúng Tôi?</h2>
+            <p class="text-muted">Chúng tôi cam kết mang lại chất lượng phục vụ tốt nhất</p>
+        </div>
+        <div class="row g-4 text-center">
+            <div class="col-md-4">
+                <div class="glass-panel h-100">
+                    <div class="feature-icon-box mx-auto">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h4 class="fw-bold">Nguyên Liệu Sạch</h4>
+                    <p class="text-muted">100% nguyên liệu tươi sạch, được tuyển chọn kỹ lưỡng mỗi ngày từ các trang trại hữu cơ.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="glass-panel h-100">
+                    <div class="feature-icon-box mx-auto">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h4 class="fw-bold">Đầu Bếp Tài Hoa</h4>
+                    <p class="text-muted">Đội ngũ đầu bếp giàu kinh nghiệm, đam mê sáng tạo những món ăn mang hương vị độc bản.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="glass-panel h-100">
+                    <div class="feature-icon-box mx-auto">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h4 class="fw-bold">Phục Vụ Tận Tâm</h4>
+                    <p class="text-muted">Không gian sang trọng cùng phong cách phục vụ chuyên nghiệp, mang lại cảm giác ấm cúng.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Featured Dishes Section -->
+    <section class="bg-white py-5">
+        <div class="container py-5">
+            <div class="d-flex justify-content-between align-items-end mb-5">
+                <div>
+                    <h2 class="fw-bold">Món Ăn Nổi Bật</h2>
+                    <p class="text-muted mb-0">Những món ăn được thực khách yêu thích nhất tại FoodieMenu</p>
+                </div>
+                <a href="menu.html" class="text-primary fw-bold text-decoration-none">Xem tất cả <i class="fas fa-arrow-right ms-2"></i></a>
+            </div>
+            <div id="featuredContainer" class="row g-4">
+                <!-- Featured dishes will be loaded here via home.js -->
+                <div class="text-center py-5">
+                    <div class="spinner-border text-primary" role="status"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 bg-light-subtle">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Khách Hàng Nói Gì?</h2>
+                <p class="text-muted">Những trải nghiệm thực tế từ thực khách của chúng tôi</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="glass-panel p-4 h-100 border-0 shadow-sm">
+                        <div class="d-flex text-warning mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-muted fst-italic">"Không gian ở đây thật sự rất ấm cúng. Món phở bò đặc biệt có nước dùng thanh ngọt, thịt bò mềm tan trong miệng. Chắc chắn tôi sẽ quay lại!"</p>
+                        <div class="d-flex align-items-center mt-4">
+                            <img src="https://i.pravatar.cc/150?u=a" alt="User" width="50" height="50" class="rounded-circle me-3">
+                            <div>
+                                <h6 class="fw-bold mb-0">Nguyễn Ngọc Hiệp</h6>
+                                <small class="text-muted">Thực khách thân thiết</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="glass-panel p-4 h-100 border-0 shadow-sm">
+                        <div class="d-flex text-warning mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-muted fst-italic">"Lần đầu tiên tôi được thưởng thức những món ăn sáng tạo như vậy. Cách trình bày cực kỳ bắt mắt và hương vị thì không thể chê vào đâu được."</p>
+                        <div class="d-flex align-items-center mt-4">
+                            <img src="https://scontent.fhan16-1.fna.fbcdn.net/v/t39.30808-1/615218196_911451418208425_6020238474956324960_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=104&ccb=1-7&_nc_sid=e99d92&_nc_ohc=2mRLfs3g5eMQ7kNvwE8KB3_&_nc_oc=Ado1utFkLlFbmCzzTzAN7CVgPojEzoiMqB7fiAaraHmikoZ8JMNMd0n5quoMHwfpzDQ&_nc_zt=24&_nc_ht=scontent.fhan16-1.fna&_nc_gid=wLIsRqBVHMHVo5-0ZzLa3g&_nc_ss=7b2a8&oh=00_Af51Hh4BWwi61NMSQ8F-p2HxpBTFt-zBIwVrIstrtR2Oxg&oe=6A03C11E" alt="User" width="50" height="50" class="rounded-circle me-3">
+                            <div>
+                                <h6 class="fw-bold mb-0">Nguyễn Minh Sơn</h6>
+                                <small class="text-muted">Food Blogger</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="glass-panel p-4 h-100 border-0 shadow-sm">
+                        <div class="d-flex text-warning mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="text-muted fst-italic">"Phục vụ rất chuyên nghiệp và tận tâm. Tôi đã đặt bàn cho gia đình vào cuối tuần và mọi người đều rất hài lòng với không khí tại đây."</p>
+                        <div class="d-flex align-items-center mt-4">
+                            <img src="https://scontent.fhan16-1.fna.fbcdn.net/v/t39.30808-1/616852921_1582460940214325_6456433639242493546_n.jpg?stp=dst-jpg_s100x100_tt6&_nc_cat=110&ccb=1-7&_nc_sid=e99d92&_nc_ohc=S1GXQs91uxIQ7kNvwH6xLgF&_nc_oc=AdrhPNmzpWZcoDgGjEgTYzii7DxpZr1SBBDTYGkuPbf--9f4r397RVSD0F8E8wSz2Bg&_nc_zt=24&_nc_ht=scontent.fhan16-1.fna&_nc_gid=EDSth4w-vtzSpC26o3DXoQ&_nc_ss=7b2a8&oh=00_Af4OEp7K8UT8ON2KsnyykwfyRqdnqNXMUvyCBb1W3Nm0xA&oe=6A03D8B1" alt="User" width="50" height="50" class="rounded-circle me-3">
+                            <div>
+                                <h6 class="fw-bold mb-0">Nguyễn Vũ Yến Nhi</h6>
+                                <small class="text-muted">Thực khách</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="newsletter-box rounded-5 p-5 text-center text-white shadow-lg overflow-hidden position-relative" style="background: linear-gradient(135deg, #ab3500 0%, #d84315 100%);">
+                <div class="position-relative z-1">
+                    <h2 class="fw-bold mb-3">Nhận Ưu Đãi Đặc Biệt</h2>
+                    <p class="mb-4 opacity-75">Đăng ký để nhận thông tin về các món ăn mới và chương trình khuyến mãi hàng tuần.</p>
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 col-lg-6">
+                            <div class="input-group mb-3 bg-white p-2 rounded-pill shadow">
+                                <input type="email" class="form-control border-0 px-4" placeholder="Email của bạn..." aria-label="Email">
+                                <button class="btn btn-primary rounded-pill px-4 fw-bold" type="button">Đăng ký ngay</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <i class="fas fa-utensils position-absolute opacity-10" style="font-size: 15rem; bottom: -50px; right: -50px; transform: rotate(-15deg);"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer will be injected by components.js -->
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>
