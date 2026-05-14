@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🍜 FoodieMenu - Hệ thống Quản lý Thực đơn Nhà hàng
 
 Dự án website quản lý thực đơn nhà hàng cao cấp, thực hiện theo yêu cầu học phần FIT4015 – Thiết kế và Lập trình Front-End.
@@ -50,8 +51,10 @@ foodie-menu/
 
 ## 🔗 Liên kết
 - **MockAPI**: [https://69fdd9ad30ad0a6fd1c19249.mockapi.io/api/v1/](https://69fdd9ad30ad0a6fd1c19249.mockapi.io/api/v1/)
-- **GitHub**: [Link GitHub của bạn]
-- **Vercel**: [Link Vercel của bạn]
+- **GitHub**: https://github.com/nguyen42005/foodie-menu.git
+- **Vercel**: https://foodie-menu-pi.vercel.app/
 
 ---
-Thiết kế bởi **Antigravity AI**.
+Thiết kế bởi **Nguyễn Tiến Dũng **.
+
+

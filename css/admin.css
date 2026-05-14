@@ -1,6 +1,6 @@
-/* Admin Dashboard Specific Styles */
+/* Các kiểu định dạng riêng cho Bảng điều khiển Quản trị */
 
-/* Stat Cards */
+/* Thẻ Thống kê */
 .stat-card {
     border-radius: 1.5rem;
     padding: 1.5rem;
@@ -41,7 +41,7 @@
     opacity: 0.8;
 }
 
-/* Table Enhancements */
+/* Cải tiến Bảng dữ liệu */
 .admin-table-container {
     background: white;
     border-radius: 1.5rem;
@@ -68,7 +68,7 @@
     background-color: rgba(171, 53, 0, 0.02);
 }
 
-/* Tabs Styling */
+/* Định dạng Các Tab */
 .nav-pills .nav-link {
     color: var(--primary-color);
     background-color: white;
@@ -87,7 +87,7 @@
     box-shadow: 0 4px 12px rgba(171, 53, 0, 0.2);
 }
 
-/* Form Controls in Modals */
+/* Các thành phần Form trong Modal */
 .modal-header {
     background: white !important;
     border-bottom: 2px solid rgba(171, 53, 0, 0.1) !important;
@@ -146,7 +146,7 @@
     border-top: 1px solid rgba(171, 53, 0, 0.1) !important;
 }
 
-/* Animations */
+/* Các hiệu ứng Hoạt ảnh */
 .stagger-item {
     opacity: 0;
     transform: translateY(20px);

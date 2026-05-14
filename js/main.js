@@ -1,13 +1,13 @@
-// Vanilla JS Entry Point (Requirement 1)
+// Điểm đầu vào Vanilla JS (Yêu cầu 1)
 document.addEventListener('DOMContentLoaded', function() {
     let allDishes = [];
     let allCategories = [];
 
-    // Inject Shared Components
+    // Chèn các thành phần dùng chung
     components.renderHeader('menu');
     components.renderFooter();
 
-    // Vanilla DOM Elements
+    // Các thành phần DOM thuần
     const dishContainer = document.getElementById('dishContainer');
     const categoryCheckboxes = document.getElementById('categoryCheckboxes');
     const searchInput = document.getElementById('searchInput');
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function init() {
         showLoading(true);
-        // Requirement 2: Fetch + .then/.catch
+        // Yêu cầu 2: Fetch + .then/.catch
         api.getAllCategories()
             .then(data => {
                 allCategories = data;
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function renderCategoryCheckboxes() {
-        // Use for loop instead of forEach for compliance (Requirement 1)
+        // Sử dụng vòng lặp for thay vì forEach để tuân thủ (Yêu cầu 1)
         for (let i = 0; i < allCategories.length; i++) {
             const cat = allCategories[i];
             const div = document.createElement('div');
@@ -56,23 +56,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function renderDishes(dishes) {
-        dishContainer.innerHTML = ''; // Vanilla DOM manipulation
+        dishContainer.innerHTML = ''; // Thao tác DOM thuần
         resultCount.textContent = `Hiển thị ${dishes.length} / ${allDishes.length} món`;
         
         if (dishes.length === 0) {
-            emptyState.classList.remove('d-none'); // Requirement 1: classList
+            emptyState.classList.remove('d-none'); // Yêu cầu 1: classList
             return;
         } else {
             emptyState.classList.add('d-none');
         }
 
-        // Use for loop for compliance
+        // Sử dụng vòng lặp for để tuân thủ
         for (let j = 0; j < dishes.length; j++) {
             const dish = dishes[j];
             const col = document.createElement('div');
             col.className = 'col-12 col-md-6 col-xl-4 fade-in-item';
             
-            // Logic for status and rating (Requirement: use isBestSeller)
+            // Logic cho trạng thái và đánh giá (Yêu cầu: sử dụng isBestSeller)
             let statusBadge = !dish.isAvailable ? '<div class="position-absolute inset-0 bg-white bg-opacity-50 d-flex align-items-center justify-content-center h-100 w-100 top-0"><span class="badge bg-danger rounded-pill px-3 py-2">❌ Hết món</span></div>' : '';
             let promoBadge = dish.isBestSeller ? '<span class="badge-float">🔥 Bán chạy</span>' : '';
 
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Filter Logic
+    // Logic Bộ lọc
     function applyFilters() {
         const searchTerm = searchInput.value.toLowerCase();
         
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
         renderDishes(filtered);
     }
 
-    // Vanilla Event Listeners (Requirement 1: NO jQuery for click, input)
+    // Trình lắng nghe sự kiện thuần (Yêu cầu 1: KHÔNG sử dụng jQuery cho click, input)
     searchInput.addEventListener('input', applyFilters);
     
     document.addEventListener('change', function(e) {
@@ -158,12 +158,12 @@ document.addEventListener('DOMContentLoaded', function() {
         applyFilters();
     }
 
-    // Requirement 4: Using jQuery for specific effect/event
-    // Detail Modal trigger using delegation
+    // Yêu cầu 4: Sử dụng jQuery cho hiệu ứng/sự kiện cụ thể
+    // Kích hoạt Modal Chi tiết bằng cách sử dụng ủy quyền sự kiện (delegation)
     document.addEventListener('click', function(e) {
-        const btn = e.target.closest('.btn-detail');
-        if (btn) {
-            const id = btn.getAttribute('data-id');
+        const card = e.target.closest('.card');
+        if (card) {
+            const id = card.getAttribute('data-id');
             showDishDetail(id);
         }
     });
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(dish => {
                 const category = allCategories.find(c => c.id === dish.categoryId);
                 
-                // Vanilla DOM manipulation
+                // Thao tác DOM thuần
                 document.getElementById('detailTitle').textContent = dish.name;
                 document.getElementById('detailImage').src = dish.image;
                 document.getElementById('detailPrice').textContent = utils.formatCurrency(dish.price);
@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     badge.textContent = 'Đang phục vụ';
                 }
 
-                // Show modal using Bootstrap (which works with or without jQuery)
+                // Hiển thị modal sử dụng Bootstrap (hoạt động có hoặc không có jQuery)
                 const modal = new bootstrap.Modal(document.getElementById('detailModal'));
                 modal.show();
             })
@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showLoading(show) {
-        // Requirement 4: jQuery effect (.fadeIn/.fadeOut)
+        // Yêu cầu 4: Hiệu ứng jQuery (.fadeIn/.fadeOut)
         if (show) $('#loadingOverlay').fadeIn(200);
         else $('#loadingOverlay').fadeOut(200);
     }

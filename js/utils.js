@@ -1,5 +1,5 @@
 const utils = {
-  // Function 1: Format price to VND (Params + Return)
+  // Hàm 1: Định dạng giá tiền sang VND (Tham số + Trả về)
   formatCurrency: function(amount) {
     if (amount === undefined || amount === null) return "0 ₫";
     return new Intl.NumberFormat("vi-VN", {
@@ -8,12 +8,12 @@ const utils = {
     }).format(amount);
   },
 
-  // Generate random rating between 4.0 and 5.0
+  // Tạo đánh giá ngẫu nhiên từ 4.0 đến 5.0
   getRandomRating: function() {
     return (Math.random() * (5.0 - 4.0) + 4.0).toFixed(1);
   },
 
-  // Function 2: Validate form data (Params + Return)
+  // Hàm 2: Kiểm tra dữ liệu biểu mẫu (Tham số + Trả về)
   validateForm: function(data) {
     const errors = {};
     if (!data.name || data.name.trim() === "") {
@@ -28,17 +28,17 @@ const utils = {
     return errors;
   },
 
-  // Function 3: Get status badge HTML (Params + Return)
+  // Hàm 3: Lấy mã HTML của nhãn trạng thái (Tham số + Trả về)
   getStatusBadge: function(isAvailable) {
     let badgeClass = isAvailable ? "bg-success" : "bg-danger";
     let text = isAvailable ? "Còn phục vụ" : "Hết món";
-    // Using Vanilla JS style return
+    // Sử dụng kiểu trả về Vanilla JS
     return `<span class="badge ${badgeClass} rounded-pill px-3">${text}</span>`;
   },
 
-  // Show Toast notification using Vanilla JS + Bootstrap
+  // Hiển thị thông báo Toast sử dụng Vanilla JS + Bootstrap
   showToast: function(message, type = "success") {
-    // Thao tác DOM thuần (Requirement 1.5)
+    // Thao tác DOM thuần (Yêu cầu 1.5)
     let toastContainer = document.getElementById("toastContainer");
     if (!toastContainer) {
       toastContainer = document.createElement("div");
@@ -64,7 +64,7 @@ const utils = {
     toastContainer.insertAdjacentHTML("beforeend", toastHtml);
     const toastElement = document.getElementById(toastId);
     
-    // Bootstrap Toast Component
+    // Thành phần Toast của Bootstrap
     const toast = new bootstrap.Toast(toastElement);
     toast.show();
 

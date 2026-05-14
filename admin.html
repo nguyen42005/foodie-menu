@@ -15,10 +15,10 @@
 </head>
 <body class="bg-background">
 
-    <!-- Header will be injected by components.js -->
+    <!-- Header sẽ được chèn bởi components.js -->
 
     <div class="container py-5 flex-grow-1">
-        <!-- Dashboard Header -->
+        <!-- Tiêu đề Bảng điều khiển -->
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 mb-5">
             <div>
                 <h1 class="fw-bold mb-1">Bảng Điều Khiển</h1>
@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        <!-- Stats Section -->
+        <!-- Phần Thống kê -->
         <div class="row g-4 mb-5">
             <div class="col-md-4">
                 <div class="stat-card bg-1 stagger-item" style="animation-delay: 0.1s">
@@ -59,7 +59,7 @@
             </div>
         </div>
 
-        <!-- Tab System -->
+        <!-- Hệ thống Tab -->
         <ul class="nav nav-pills mb-4 gap-2" id="adminTabs" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active rounded-pill px-4 fw-bold" id="dishes-tab" data-bs-toggle="pill" data-bs-target="#dishes-content" type="button">Quản lý Món Ăn</button>
@@ -70,7 +70,7 @@
         </ul>
 
         <div class="tab-content" id="adminTabsContent">
-            <!-- Dishes Management Tab -->
+            <!-- Tab Quản lý Món ăn -->
             <div class="tab-pane fade show active" id="dishes-content">
                 <div class="glass-panel p-4 mb-4">
                     <div class="row g-3 align-items-center">
@@ -101,14 +101,14 @@
                                 </tr>
                             </thead>
                             <tbody id="adminDishTable">
-                                <!-- Loaded via JS -->
+                                <!-- Được tải thông qua JS -->
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
 
-            <!-- Categories Management Tab -->
+            <!-- Tab Quản lý Danh mục -->
             <div class="tab-pane fade" id="categories-content">
                 <div class="glass-panel p-4 mb-4">
                     <h5 class="fw-bold mb-0">Danh sách danh mục</h5>
@@ -125,7 +125,7 @@
                                 </tr>
                             </thead>
                             <tbody id="adminCategoryTable">
-                                <!-- Loaded via JS -->
+                                <!-- Được tải thông qua JS -->
                             </tbody>
                         </table>
                     </div>
@@ -134,9 +134,9 @@
         </div>
     </div>
 
-    <!-- Footer will be injected by components.js -->
+    <!-- Footer sẽ được chèn bởi components.js -->
 
-    <!-- Dish Modal (Redesigned) -->
+    <!-- Modal Món ăn (Thiết kế lại) -->
     <div class="modal fade" id="dishModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content overflow-hidden border-0 shadow-lg" style="border-radius: 1.5rem;">
@@ -173,7 +173,7 @@
                             <div class="input-group">
                                 <span class="input-group-text bg-white border-end-0"><i class="fas fa-tags text-primary"></i></span>
                                 <select class="form-select border-start-0 ps-0" id="dishCategory" name="categoryId">
-                                    <!-- Loaded via JS -->
+                                    <!-- Được tải thông qua JS -->
                                 </select>
                             </div>
                         </div>
@@ -211,7 +211,7 @@
         </div>
     </div>
 
-    <!-- Category Modal -->
+    <!-- Modal Danh mục -->
     <div class="modal fade" id="categoryModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content overflow-hidden border-0 shadow-lg" style="border-radius: 1.5rem;">
@@ -239,7 +239,7 @@
         </div>
     </div>
 
-    <!-- Delete Confirmation Modal -->
+    <!-- Modal Xác nhận Xóa -->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-sm modal-dialog-centered">
             <div class="modal-content border-0 shadow-lg" style="border-radius: 1.5rem;">
@@ -258,17 +258,17 @@
         </div>
     </div>
 
-    <!-- Loading Overlay -->
+    <!-- Lớp phủ đang tải (Loading Overlay) -->
     <div id="loadingOverlay">
         <div class="spinner-border text-primary" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
     </div>
 
-    <!-- Toast Container -->
+    <!-- Container cho Toast (Thông báo nhanh) -->
     <div id="toastContainer" class="toast-container position-fixed bottom-0 end-0 p-3"></div>
 
-    <!-- Scripts -->
+    <!-- Các tệp mã lệnh (Scripts) -->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/api.js"></script>

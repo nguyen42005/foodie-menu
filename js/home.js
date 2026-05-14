@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Inject Shared Components
+    // Chèn các thành phần dùng chung
     components.renderHeader('index');
     components.renderFooter();
 
@@ -8,17 +8,17 @@ document.addEventListener('DOMContentLoaded', function() {
     init();
 
     function init() {
-        // Fetch dishes to show top 3 featured ones
+        // Lấy danh sách món ăn để hiển thị 6 món nổi bật hàng đầu
         api.getAllDishes()
             .then(dishes => {
-                // Filter Best Seller dishes and take max 6
+                // Lọc các món Bán chạy và lấy tối đa 6 món
                 const featured = dishes
                     .filter(d => d.isBestSeller)
                     .slice(0, 6);
                 
-                // If fewer than 6 best sellers, fill with random ones? 
-                // Or just show whatever is available. The user said "hiển thị những món bán chạy tối đa là 6 món".
-                // I'll stick to just best sellers for now.
+                // Nếu ít hơn 6 món bán chạy, có thể thêm các món ngẫu nhiên?
+                // Hoặc chỉ hiển thị những gì có sẵn.
+                // Tôi sẽ chỉ giữ các món bán chạy vào lúc này.
                 renderFeaturedDishes(featured);
             })
             .catch(err => {
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
             col.style.animationDelay = (i * 0.1) + 's';
             
             col.innerHTML = `
-                <div class="card h-100 shadow-sm border-0" style="border-radius: 1.5rem; overflow: hidden;">
+                <div class="card h-100 shadow-sm border-0" style="border-radius: 1.5rem; overflow: hidden;" onclick="window.location.href='menu.html'">
                     <div style="height: 250px; overflow: hidden;">
                         <img src="${dish.image}" class="w-100 h-100 object-fit-cover" alt="${dish.name}" onerror="this.src='https://placehold.co/600x400?text=Food'">
                     </div>

@@ -1,7 +1,7 @@
 const BASE_URL = "https://69fdd9ad30ad0a6fd1c19249.mockapi.io/api/v1/";
 
 const api = {
-  // Get all dishes using Fetch with .then/.catch (Requirement 2)
+  // Lấy tất cả món ăn sử dụng Fetch với .then/.catch (Yêu cầu 2)
   getAllDishes: () => {
     return fetch(`${BASE_URL}dishes`)
       .then(response => {
@@ -14,7 +14,7 @@ const api = {
       });
   },
 
-  // Get dish by ID using Fetch
+  // Lấy món ăn theo ID sử dụng Fetch
   getDishById: (id) => {
     return fetch(`${BASE_URL}dishes/${id}`)
       .then(response => {
@@ -27,7 +27,7 @@ const api = {
       });
   },
 
-  // Create dish using Fetch
+  // Tạo món ăn mới sử dụng Fetch
   createDish: (dishData) => {
     return fetch(`${BASE_URL}dishes`, {
       method: "POST",
@@ -46,7 +46,7 @@ const api = {
       });
   },
 
-  // Update dish using Fetch
+  // Cập nhật món ăn sử dụng Fetch
   updateDish: (id, dishData) => {
     return fetch(`${BASE_URL}dishes/${id}`, {
       method: "PUT",
@@ -65,11 +65,11 @@ const api = {
       });
   },
 
-  // Delete dish using Fetch
+  // Xóa món ăn sử dụng Fetch
   deleteDish: (id) => {
     return fetch(`${BASE_URL}dishes/${id}`)
       .then(res => {
-        // Requirement 2: Demonstrate full CRUD
+        // Yêu cầu 2: Trình bày đầy đủ các thao tác CRUD
         return fetch(`${BASE_URL}dishes/${id}`, { method: "DELETE" });
       })
       .then(response => {
@@ -82,7 +82,7 @@ const api = {
       });
   },
 
-  // Get all categories using jQuery AJAX (Requirement 4: $.ajax)
+  // Lấy tất cả danh mục sử dụng jQuery AJAX (Yêu cầu 4: $.ajax)
   getAllCategories: () => {
     return Promise.resolve($.ajax({
       url: `${BASE_URL}categories`,
@@ -91,7 +91,7 @@ const api = {
     }));
   },
 
-  // Create category using Fetch
+  // Tạo danh mục mới sử dụng Fetch
   createCategory: (data) => {
     return fetch(`${BASE_URL}categories`, {
       method: "POST",
@@ -100,7 +100,7 @@ const api = {
     }).then(res => res.json());
   },
 
-  // Update category using Fetch
+  // Cập nhật danh mục sử dụng Fetch
   updateCategory: (id, data) => {
     return fetch(`${BASE_URL}categories/${id}`, {
       method: "PUT",
@@ -109,7 +109,7 @@ const api = {
     }).then(res => res.json());
   },
 
-  // Delete category using Fetch
+  // Xóa danh mục sử dụng Fetch
   deleteCategory: (id) => {
     return fetch(`${BASE_URL}categories/${id}`, {
       method: "DELETE"

@@ -1,4 +1,4 @@
-/* Card Redesign */
+/* Thiết kế lại thẻ Card */
 .card {
     border: 1px solid var(--outline-variant);
     border-radius: 1rem;
@@ -44,7 +44,7 @@
     font-size: 0.75rem;
 }
 
-/* Sidebar Elements */
+/* Các thành phần Thanh bên (Sidebar) */
 .form-check-input:checked {
     background-color: var(--primary-color);
     border-color: var(--primary-color);

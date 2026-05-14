@@ -4,11 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
     let dishToDelete = null;
     let categoryToDelete = null;
 
-    // Inject Shared Components
+    // Chèn các thành phần dùng chung
     components.renderHeader('admin');
     components.renderFooter();
 
-    // Vanilla DOM Elements
+    // Các thành phần DOM thuần
     const dishTable = document.getElementById('adminDishTable');
     const categoryTable = document.getElementById('adminCategoryTable');
     const dishForm = document.getElementById('dishForm');
@@ -21,12 +21,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnConfirmDelete = document.getElementById('btnConfirmDelete');
     const adminSearchInput = document.getElementById('adminSearchInput');
 
-    // Stats Elements
+    // Các thành phần Thống kê
     const statTotal = document.getElementById('statTotal');
     const statActive = document.getElementById('statActive');
     const statCategories = document.getElementById('statCategories');
 
-    // Bootstrap Modals
+    // Các Modal Bootstrap
     const dishModal = new bootstrap.Modal(document.getElementById('dishModal'));
     const categoryModal = new bootstrap.Modal(document.getElementById('categoryModal'));
     const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function init() {
         showLoading(true);
-        // Requirement 2: Fetch chain
+        // Yêu cầu 2: Chuỗi Fetch (Fetch chain)
         api.getAllCategories()
             .then(data => {
                 allCategories = data;
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
         statCategories.textContent = allCategories.length;
     }
 
-    // --- DISH MANAGEMENT ---
+    // --- QUẢN LÝ MÓN ĂN ---
 
     function populateCategoryDropdown() {
         const select = document.getElementById('dishCategory');
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // --- CATEGORY MANAGEMENT ---
+    // --- QUẢN LÝ DANH MỤC ---
 
     function renderCategoryTable() {
         categoryTable.innerHTML = '';
@@ -130,9 +130,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // --- EVENT LISTENERS ---
+    // --- TRÌNH LẮNG NGHE SỰ KIỆN ---
 
-    // Dish Listeners
+    // Lắng nghe sự kiện cho Món ăn
     btnAddDish.addEventListener('click', () => {
         document.getElementById('dishModalTitle').textContent = 'Thêm Món Ăn Mới';
         dishForm.reset();
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
         dishModal.show();
     });
 
-    // Category Listeners
+    // Lắng nghe sự kiện cho Danh mục
     btnAddCategory.addEventListener('click', () => {
         document.getElementById('categoryModalTitle').textContent = 'Thêm Danh Mục Mới';
         categoryForm.reset();
@@ -149,14 +149,14 @@ document.addEventListener('DOMContentLoaded', function() {
         categoryModal.show();
     });
 
-    // Search
+    // Tìm kiếm
     adminSearchInput.addEventListener('input', function() {
         const term = this.value.toLowerCase();
         const filtered = allDishes.filter(d => d.name.toLowerCase().includes(term) || d.id.toString().includes(term));
         renderAdminTable(filtered);
     });
 
-    // Delegation for Table Actions
+    // Ủy quyền cho các Thao tác trong Bảng (Delegation)
     document.addEventListener('click', (e) => {
         const editDish = e.target.closest('.btn-edit-dish');
         const deleteDish = e.target.closest('.btn-delete-dish');
@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Save Dish
+    // Lưu Món ăn
     btnSaveDish.addEventListener('click', () => {
         const data = {
             name: document.getElementById('dishName').value,
@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
             description: document.getElementById('dishDescription').value,
             isAvailable: document.getElementById('dishAvailable').checked,
             isBestSeller: document.getElementById('dishBestSeller').checked,
-            rating: utils.getRandomRating() // Requirement: random rating
+            rating: utils.getRandomRating() // Yêu cầu: đánh giá ngẫu nhiên
         };
 
         const errors = utils.validateForm(data);
@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }).finally(() => showLoading(false));
     });
 
-    // Save Category
+    // Lưu Danh mục
     btnSaveCategory.addEventListener('click', () => {
         const name = document.getElementById('categoryName').value;
         if (!name.trim()) return utils.showToast("Tên danh mục không được để trống", "error");
@@ -241,7 +241,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }).finally(() => showLoading(false));
     });
 
-    // Confirm Delete
+    // Xác nhận Xóa
     btnConfirmDelete.addEventListener('click', () => {
         showLoading(true);
         let action;

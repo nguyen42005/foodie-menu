@@ -1,4 +1,4 @@
-/* Hero Section */
+/* Phần Hero (Giới thiệu đầu trang) */
 .hero-home {
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
     background-size: cover;
@@ -14,7 +14,7 @@
     margin-bottom: 1.5rem;
 }
 
-/* Featured Section */
+/* Phần Món ăn Nổi bật */
 .featured-card {
     border: none;
     border-radius: 1.5rem;
@@ -26,7 +26,7 @@
     transform: translateY(-10px);
 }
 
-/* Feature Icons */
+/* Các biểu tượng tính năng */
 .feature-icon-box {
     width: 64px;
     height: 64px;

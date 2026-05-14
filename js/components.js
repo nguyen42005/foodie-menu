@@ -79,7 +79,7 @@ const components = {
                     <hr class="footer-divider my-4">
                     <div class="row align-items-center">
                         <div class="col-md-6 text-center text-md-start">
-                            <p class="footer-copyright mb-0">© 2026 FoodieMenu. Thiết kế bởi Antigravity AI.</p>
+                            <p class="footer-copyright mb-0">© 2026 FoodieMenu. Thiết kế bởi Nguyễn Tiến Dũng .</p>
                         </div>
                         <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
                             <img src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa" width="30" class="me-2">
